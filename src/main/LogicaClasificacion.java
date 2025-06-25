@@ -3,6 +3,9 @@ package main;
 import java.util.*;
 
 public class LogicaClasificacion {
+    Stack<String> aux = new Stack<>();
+    Queue<String> nombres = new LinkedList<>();
+    // LinkedList<>
 
     /**
      * Invierte el contenido de una cola de nombres utilizando una pila auxiliar.
@@ -15,9 +18,15 @@ public class LogicaClasificacion {
      * @return nueva cola con los nombres en orden invertido
      */
     public Queue<String> invertirColaNombres(Queue<String> cola) {
+        for (String s : cola) {
+            aux.push(s);
+            nombres.add(aux.pop());
+        }
 
-        return new LinkedList<>(Arrays.asList()); // Simulación de resultado
+        return nombres;
     }
+
+    Stack<String> letras = new Stack<>();
 
     /**
      * Verifica si la palabra formada por los elementos de una cola es un
@@ -33,7 +42,19 @@ public class LogicaClasificacion {
      */
     public boolean verificarPalindromoCola(Queue<String> cola) {
 
+        for (String c : cola) {
+            while (!cola.isEmpty()) {
+                letras.push(c);
+                cola.add(letras.pop());
+                if (letras.peek() == cola.peek()) {
+                    return true;
+                }
+                return false;
+            }
+
+        }
         return false;
     }
+    
 
 }

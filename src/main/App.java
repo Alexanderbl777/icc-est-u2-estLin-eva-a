@@ -1,5 +1,8 @@
 package main;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import utils.StudentValidator;
 
 public class App {
